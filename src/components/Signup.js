@@ -26,7 +26,7 @@ const Signup = () => {
       });
   };
   return (
-    <div classNameName="signup">
+    <div className="signup">
       <img
         src="https://www.pngkey.com/png/full/828-8286178_mackeys-work-needs-no-elaborate-presentation-or-distracting.png"
         alt=""

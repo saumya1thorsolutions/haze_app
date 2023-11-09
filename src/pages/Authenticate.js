@@ -8,17 +8,17 @@ const Authenticate = () => {
     setActive(active === "login" ? "signup" : "login");
   };
   return (
-    <div classNameName="authenticate">
-      <div classNameName="auth__left">
+    <div className="authenticate">
+      <div className="auth__left">
         <img
           src="/assets/shopifyLogo.jpg"
           alt="Instagram Screenshots"
         />
       </div>
-      <div classNameName="auth__right">
+      <div className="auth__right">
         {active === "login" ? <Login /> : <Signup />}
 
-        <div classNameName="auth__more">
+        <div className="auth__more">
           <span>
             {active === "login" ? (
               <>
