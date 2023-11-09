@@ -1,11 +1,40 @@
-import React from 'react'
+import React, { useState } from "react";
+import Login from "../components/Login";
+import Signup from "../components/Signup";
 
 const Authenticate = () => {
+  const [active, setActive] = useState("login");
+  const handleChange = () => {
+    setActive(active === "login" ? "signup" : "login");
+  };
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <div className="authenticate">
+      <div className="auth__left">
+        <img
+          src="https://i.imgur.com/P3Vm1Kq.png"
+          alt="Instagram Screenshots"
+        />
+      </div>
+      <div className="auth__right">
+        {active === "login" ? <Login /> : <Signup />}
 
-export default Authenticate
+        <div className="auth__more">
+          <span>
+            {active === "login" ? (
+              <>
+                Don't have an account?{" "}
+                <button onClick={handleChange}>Sign Up</button>
+              </>
+            ) : (
+              <>
+                Have an account? <button onClick={handleChange}>Log in</button>
+              </>
+            )}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Authenticate;

@@ -1,2 +1,3 @@
 import Authenticate from "./Authenticate";
-export default {Authenticate}
+import Home from "./Home";
+export default {Authenticate,Home}
