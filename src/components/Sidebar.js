@@ -7,7 +7,7 @@ const Sidebar = () => {
         <div className="sidebar_menu_section">
           <ul className="sidebar_menu">
             <li className="sidebar_list ">
-              <a href="#">
+              <a href="/home">
                 <span className="sidebar_menu_icon">
                   <img src="assets/Image/home.svg" />
                 </span>
@@ -16,7 +16,7 @@ const Sidebar = () => {
             </li>
 
             <li className="sidebar_list">
-              <a href="#">
+              <a href="/my-products">
                 <span className="sidebar_menu_icon">
                   <img src="assets/Image/My Products.svg" />
                 </span>

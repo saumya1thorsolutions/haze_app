@@ -32,8 +32,6 @@ function App(props) {
 
   const user = useSelector((state) => state.data.user.user);
   const isLoading = useSelector((state) => state.data.user.isLoading);
-  console.log(user);
-  
   return (
     <>
       {isLoading ? (
@@ -41,7 +39,33 @@ function App(props) {
           <div className="loader"></div>
         </div>
       ) : (
-        <>{user ? <Home /> : <Authenticate />}</>
+        <>
+          {user ? (
+            <>
+              <Router>
+                <Routes>
+                  {CustomRoutes.map((route, index) => {
+                    return (
+                      <Route
+                        key={index}
+                        path={process.env.PUBLIC_URL + route.path}
+                        exact={route.exact || false}
+                        element={
+                          <route.layout {...props}>
+                            <route.component {...props} />
+                          </route.layout>
+                        }
+                      />
+                    );
+                  })}
+                </Routes>
+              </Router>
+              
+            </>
+          ) : (
+            <Authenticate />
+          )}
+        </>
       )}
     </>
   );
