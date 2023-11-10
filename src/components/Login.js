@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <div className="login">
       <img
-        src="https://www.pngkey.com/png/full/828-8286178_mackeys-work-needs-no-elaborate-presentation-or-distracting.png"
+        src="assets/shopify.png"
         alt=""
       />
       <input

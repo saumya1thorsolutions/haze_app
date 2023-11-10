@@ -29,7 +29,7 @@ const HomesMain = (props) => {
             <div className="home_data_col">
               <div className="home_data_col_header">
                 <span className="home_data_icon">
-                  <img src="./Image/Total Orders.svg" />
+                  <img src="assets/Image/Total Orders.svg" />
                 </span>
                 <span className="home_data_name">Total Orders</span>
               </div>
@@ -39,7 +39,7 @@ const HomesMain = (props) => {
             <div className="home_data_col">
               <div className="home_data_col_header">
                 <span className="home_data_icon">
-                  <img src="./Image/Average Order Value.svg" />
+                  <img src="assets/Image/Average Order Value.svg" />
                 </span>
                 <span className="home_data_name">Average Order Value</span>
               </div>
@@ -49,7 +49,7 @@ const HomesMain = (props) => {
             <div className="home_data_col">
               <div className="home_data_col_header">
                 <span className="home_data_icon">
-                  <img src="./Image/Growth Rate.svg" />
+                  <img src="assets/Image/Growth Rate.svg" />
                 </span>
                 <span className="home_data_name">Growth Rate</span>
               </div>
@@ -62,7 +62,7 @@ const HomesMain = (props) => {
             <div className="home_data_right_col">
               <div className="home_data_col_header">
                 <span className="home_data_icon">
-                  <img src="./Image/Total Orders.svg" />
+                  <img src="assets/Image/Total Orders.svg" />
                 </span>
                 <span className="home_data_name">Total Orders</span>
               </div>

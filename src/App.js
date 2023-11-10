@@ -60,7 +60,6 @@ function App(props) {
                   })}
                 </Routes>
               </Router>
-              
             </>
           ) : (
             <Authenticate />
