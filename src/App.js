@@ -48,7 +48,7 @@ function App(props) {
                     if (route.path === "/") {
                       console.log("redirect to home");
                       return (
-                        <Route path="/home" element={
+                        <Route key={index} path="/home" element={
                           <route.layout {...props}>
                             <route.component {...props} />
                           </route.layout>

@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState('/home');
+
+  useEffect(() => {
+    // Set the active link based on the current pathname
+    setActiveLink(location.pathname);
+  }, [location]);
   return (
     <>
       <div className="sider_baar">
@@ -11,7 +19,7 @@ const Sidebar = () => {
                 <span className="sidebar_menu_icon">
                   <img src="assets/Image/home.svg" />
                 </span>
-                <span className="sidebar_menu_name active_list">Home</span>
+                <span className={`sidebar_menu_name ${activeLink === '/home' ? 'active_list active' : ''}`}>Home</span>
               </a>
             </li>
 
@@ -21,7 +29,7 @@ const Sidebar = () => {
                   <img src="assets/Image/My Products.svg" />
                 </span>
 
-                <span className="sidebar_menu_name">My Products</span>
+                <span className={`sidebar_menu_name ${activeLink === '/my-products' ? 'active_list active' : ''}`}>My Products</span>
               </a>
             </li>
 
