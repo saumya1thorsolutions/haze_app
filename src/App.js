@@ -45,18 +45,29 @@ function App(props) {
               <Router>
                 <Routes>
                   {CustomRoutes.map((route, index) => {
-                    return (
-                      <Route
-                        key={index}
-                        path={process.env.PUBLIC_URL + route.path}
-                        exact={route.exact || false}
-                        element={
+                    if (route.path === "/") {
+                      console.log("redirect to home");
+                      return (
+                        <Route path="/home" element={
                           <route.layout {...props}>
                             <route.component {...props} />
                           </route.layout>
-                        }
-                      />
-                    );
+                        } />
+                      );
+                    } else {
+                      return (
+                        <Route
+                          key={index}
+                          path={process.env.PUBLIC_URL + route.path}
+                          exact={route.exact || false}
+                          element={
+                            <route.layout {...props}>
+                              <route.component {...props} />
+                            </route.layout>
+                          }
+                        />
+                      );
+                    }
                   })}
                 </Routes>
               </Router>
