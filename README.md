@@ -37,7 +37,7 @@ To deploy this project run
 
 ## Demo
 
-Demo Link : https://haze-app.vercel.app/
+Demo Link : https://haze-app-six.vercel.app/
 
 Demo Video : https://www.loom.com/share/6fbe0ae8426b4b55b9631494320a7142
 
