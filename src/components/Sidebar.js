@@ -6,7 +6,6 @@ const Sidebar = () => {
   const [activeLink, setActiveLink] = useState('/home');
 
   useEffect(() => {
-    // Set the active link based on the current pathname
     setActiveLink(location.pathname);
   }, [location]);
   return (
@@ -34,67 +33,67 @@ const Sidebar = () => {
             </li>
 
             <li className="sidebar_list">
-              <a href="#">
+              <a href="/printing-methods">
                 <span className="sidebar_menu_icon">
                   <img src="assets/Image/Printing Methods.svg" />
                 </span>
 
-                <span className="sidebar_menu_name">Printing Methods</span>
+                <span className={`sidebar_menu_name ${activeLink === '/printing-methods' ? 'active_list active' : ''}`}>Printing Methods</span>
               </a>
             </li>
 
             <li className="sidebar_list">
-              <a href="#">
+              <a href="/pricing-rules">
                 <span className="sidebar_menu_icon">
                   <span className="sidebar_menu_icon">
                     <img src="assets/Image/Pricing Rules.svg" />
                   </span>
                 </span>
-                <span className="sidebar_menu_name">Pricing Rules</span>
+                <span className={`sidebar_menu_name ${activeLink === '/pricing-rules' ? 'active_list active' : ''}`}>Pricing Rules</span>
               </a>
             </li>
 
             <li className="sidebar_list">
-              <a href="#">
+              <a href="/theme-builder">
                 <span className="sidebar_menu_icon">
                   <span className="sidebar_menu_icon">
                     <img src="assets/Image/Theme Builder.svg" />
                   </span>
                 </span>
-                <span className="sidebar_menu_name">Theme Builder</span>
+                <span className={`sidebar_menu_name ${activeLink === '/theme-builder' ? 'active_list active' : ''}`}>Theme Builder</span>
               </a>
             </li>
 
             <li className="sidebar_list">
-              <a href="#">
+              <a href="/orders">
                 <span className="sidebar_menu_icon">
                   <span className="sidebar_menu_icon">
                     <img src="assets/Image/Orders.svg" />
                   </span>
                 </span>
-                <span className="sidebar_menu_name">Orders</span>
+                <span className={`sidebar_menu_name ${activeLink === '/orders' ? 'active_list active' : ''}`}>Orders</span>
               </a>
             </li>
 
             <li className="sidebar_list">
-              <a href="#">
+              <a href="/saved-designs">
                 <span className="sidebar_menu_icon">
                   <span className="sidebar_menu_icon">
                     <img src="assets/Image/Saved Designs.svg" />
                   </span>
                 </span>
-                <span className="sidebar_menu_name">Saved Designs</span>
+                <span className={`sidebar_menu_name ${activeLink === '/saved-designs' ? 'active_list active' : ''}`}>Saved Designs</span>
               </a>
             </li>
 
             <li className="sidebar_list">
-              <a href="#">
+              <a href="/settings">
                 <span className="sidebar_menu_icon">
                   <span className="sidebar_menu_icon">
                     <img src="assets/Image/Settings.svg" />
                   </span>
                 </span>
-                <span className="sidebar_menu_name">Settings</span>
+                <span className={`sidebar_menu_name ${activeLink === '/settings' ? 'active_list active' : ''}`}>Settings</span>
               </a>
             </li>
           </ul>
