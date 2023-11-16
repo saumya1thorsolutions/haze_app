@@ -11,12 +11,12 @@ const Login = () => {
 
   const handleLogin = async () => {
     try{
-      await auth.signInWithEmailAndPassword(email,password);
+      await signInWithEmailAndPassword(auth, email, password);
       navigate("/home");
     }catch(error){
-      console.log("error code",error);
-      if (error.code === 'auth/wrong-password') {
-        setError('Incorrect password. Please try again.');
+      //console.log("error code",error.code);
+      if (error.code === 'auth/invalid-login-credentials') {
+        setError('Invalid login credentials. Please try again.');
       } else {
         setError('An error occurred. Please try again later.');
       }
