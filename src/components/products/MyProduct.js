@@ -3,17 +3,22 @@ import axios from "axios";
 
 const MyProduct = (props) => {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/photos")
-      .then((response) => {
-        console.log(response.data);
-        setProducts(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching products: ", error);
-      });
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3001/getShopifyProducts"
+        );
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
   }, []);
+
   return (
     <div className="left_wrapper">
       <div className="wrapper_header">
@@ -108,12 +113,20 @@ const MyProduct = (props) => {
                       <div className="products_card">
                         <div className="products_body">
                           <div className="products_image">
-                            <img src={product.thumbnailUrl} />
+                            {product.image?.src ? (
+                              <>
+                                <img src={product.image.src} />
+                              </>
+                            ) : (
+                              <p>No Image</p>
+                            )}
                           </div>
                           <div className="products_card_cont">
-                            <div className="products_card_title">{product.title}</div>
+                            <div className="products_card_title">
+                              {product.title}
+                            </div>
                             <div className="products_card_description">
-                              Updated 5mins ago
+                              {product.vendor}
                             </div>
                           </div>
                         </div>
