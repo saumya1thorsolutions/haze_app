@@ -1,3 +1,4 @@
 import DefaultLayout from "./DefaultLayout";
 import LoginLayout from "./LoginLayout";
-export default {LoginLayout,DefaultLayout}
+import DashboardLayout from "./DashboardLayout";
+export default {LoginLayout,DefaultLayout,DashboardLayout}

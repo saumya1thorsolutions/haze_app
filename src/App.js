@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import { auth } from "./firebase";
 import { loginUser, setLoading } from "./features/userSlice";
 import Authenticate from "./pages/Authenticate";
-import Home from "./pages/Home";
 
 function App(props) {
   const dispatch = useDispatch();
@@ -25,13 +24,17 @@ function App(props) {
         dispatch(setLoading(false));
       } else {
         dispatch(setLoading(false));
-        console.log("User is not logged in.");
       }
     });
+    
+    const storedData = localStorage.getItem('access_token');
+    if(storedData){
+      dispatch(loginUser(storedData));
+    }
   }, []);
 
-  const user = useSelector((state) => state.data.user.user);
-  const isLoading = useSelector((state) => state.data.user.isLoading);
+  const user = useSelector((state) => state.user.user);
+  const isLoading = useSelector((state) => state.user.isLoading);
   return (
     <Router>
       <>
@@ -45,7 +48,6 @@ function App(props) {
               <Routes>
                 {CustomRoutes.map((route, index) => {
                   if (route.path === "/") {
-                    console.log("redirect to home");
                     return (
                       <Route
                         key={index}

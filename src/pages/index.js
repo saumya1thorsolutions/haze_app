@@ -1,6 +1,9 @@
 import Authenticate from "./Authenticate";
 import Home from "./Home";
+import YourOrders from "./YourOrders";
 import MyProducts from "./MyProducts";
-import PrintingMethods from "./PrintingMethods";
 import PricingRules from "./PricingRules";
-export default {Authenticate,Home,MyProducts,PrintingMethods,PricingRules}
+import ThemeBuilder from "./ThemeBuilder";
+import PrintingMethods from "./PrintingMethods";
+import SavedDesigns from "./SavedDesigns";
+export default {Authenticate,Home,YourOrders,MyProducts,PricingRules,ThemeBuilder,PrintingMethods,SavedDesigns}

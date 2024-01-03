@@ -1,11 +1,11 @@
 import Layout from "./layouts";
 import Page from "./pages";
-const CustomRoutes = [
+const CustomRoutes = [  
   {
-    path: "/pricing-rules",
+    path: "/saved-designs",
     exact: true,
     layout: Layout.DefaultLayout,
-    component: Page.PricingRules,
+    component: Page.SavedDesigns,
   },
   {
     path: "/printing-methods",
@@ -14,15 +14,33 @@ const CustomRoutes = [
     component: Page.PrintingMethods,
   },
   {
+    path: "/theme-builder",
+    exact: true,
+    layout: Layout.DefaultLayout,
+    component: Page.ThemeBuilder,
+  },
+  {
+    path: "/pricing-rules",
+    exact: true,
+    layout: Layout.DefaultLayout,
+    component: Page.PricingRules,
+  },
+  {
     path: "/my-products",
     exact: true,
     layout: Layout.DefaultLayout,
     component: Page.MyProducts,
   },
   {
-    path: "/home",
+    path: "/orders",
     exact: true,
     layout: Layout.DefaultLayout,
+    component: Page.YourOrders,
+  },
+  {
+    path: "/home",
+    exact: true,
+    layout: Layout.DashboardLayout,
     component: Page.Home,
   },
   {

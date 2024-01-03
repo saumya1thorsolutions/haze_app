@@ -36,14 +36,15 @@ app.listen(port, () => {
   console.log(`Your app is running on ${port}.`);
 });
 
-const SHOPIFY_API_KEY = "26d81bfb6f92dac83304496e302d0186";
-const SHOPIFY_API_SECRET = "24eb4b2028de8f5445e6c4505ef45f17";
-const SHOPIFY_DOMAIN = "c1haze.myshopify.com";
+
+/* by default local */
+const SHOPIFY_API_KEY = _.get(process.env, "SHOPIFY_API_KEY", "26d81bfb6f92dac83304496e302d0186");
+const SHOPIFY_API_SECRET = _.get(process.env, "SHOPIFY_API_SECRET", "24eb4b2028de8f5445e6c4505ef45f17");
+const SHOPIFY_DOMAIN = _.get(process.env, "SHOPIFY_DOMAIN", "c1haze.myshopify.com");
+const SHOPIFY_ACCESS_TOKEN = _.get(process.env, "SHOPIFY_ACCESS_TOKEN", "shpua_9631e1d8dd61351154a788fca74b1592");
 
 app.post("/auth/shopify/callback", async (req, res) => {
   const { code } = req.body;
-
-  // Exchange the code for an access token
   const tokenResponse = await fetch(
     `https://${SHOPIFY_DOMAIN}/admin/oauth/access_token`,
     {
@@ -58,35 +59,18 @@ app.post("/auth/shopify/callback", async (req, res) => {
       }),
     }
   );
-
   const { access_token } = await tokenResponse.json();
-
-  // Fetch customers from Shopify using the access token
-  const customersResponse = await fetch(
-    `https://${SHOPIFY_DOMAIN}/admin/api/2021-10/customers.json`,
-    {
-      headers: {
-        "X-Shopify-Access-Token": access_token,
-      },
-    }
-  );
-
-  const customers = await customersResponse.json();
-
-  console.log(customers.customers);
-
-  // Do something with the customers data (e.g., validate against your own user database)
-
-  res.json({ data:customers,success: true });
+  console.log(access_token);
+  res.json({ access_token:access_token,success: true });
 });
 
 app.get("/getShopifyProducts", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://c1haze.myshopify.com/admin/api/2022-01/products.json",
+      `https://${SHOPIFY_DOMAIN}/admin/api/2022-01/products.json`,
       {
         headers: {
-          "X-Shopify-Access-Token": "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",
+          "X-Shopify-Access-Token": SHOPIFY_ACCESS_TOKEN,
         },
       }
     );

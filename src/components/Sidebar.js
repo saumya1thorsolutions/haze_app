@@ -8,6 +8,11 @@ const Sidebar = () => {
   useEffect(() => {
     setActiveLink(location.pathname);
   }, [location]);
+
+  const toggleUserDropdown = () => {
+    var userDropdownOptions = document.getElementById("userDropdownOptions");
+    userDropdownOptions.style.display = (userDropdownOptions.style.display === "block") ? "none" : "block";
+  }
   return (
     <>
       <div className="sider_baar">
@@ -18,7 +23,18 @@ const Sidebar = () => {
                 <span className="sidebar_menu_icon">
                   <img src="assets/Image/home.svg" />
                 </span>
-                <span className={`sidebar_menu_name ${activeLink === '/home' ? 'active_list active' : ''}`}>Home</span>
+                <span className={`sidebar_menu_name ${activeLink === '/home' ? 'active_list' : ''}`}>Dashboard</span>
+              </a>
+            </li>
+
+            <li className="sidebar_list">
+              <a href="/orders">
+                <span className="sidebar_menu_icon">
+                  <span className="sidebar_menu_icon">
+                    <img src="assets/Image/Orders.svg" />
+                  </span>
+                </span>
+                <span className={`sidebar_menu_name ${activeLink === '/orders' ? 'active_list active' : ''}`}>Orders</span>
               </a>
             </li>
 
@@ -28,17 +44,7 @@ const Sidebar = () => {
                   <img src="assets/Image/My Products.svg" />
                 </span>
 
-                <span className={`sidebar_menu_name ${activeLink === '/my-products' ? 'active_list active' : ''}`}>My Products</span>
-              </a>
-            </li>
-
-            <li className="sidebar_list">
-              <a href="/printing-methods">
-                <span className="sidebar_menu_icon">
-                  <img src="assets/Image/Printing Methods.svg" />
-                </span>
-
-                <span className={`sidebar_menu_name ${activeLink === '/printing-methods' ? 'active_list active' : ''}`}>Printing Methods</span>
+                <span className={`sidebar_menu_name ${activeLink === '/my-products' ? 'active_list active' : ''}`}>Products</span>
               </a>
             </li>
 
@@ -65,15 +71,14 @@ const Sidebar = () => {
             </li>
 
             <li className="sidebar_list">
-              <a href="/orders">
+              <a href="/printing-methods">
                 <span className="sidebar_menu_icon">
-                  <span className="sidebar_menu_icon">
-                    <img src="assets/Image/Orders.svg" />
-                  </span>
+                  <img src="assets/Image/Printing Methods.svg" />
                 </span>
-                <span className={`sidebar_menu_name ${activeLink === '/orders' ? 'active_list active' : ''}`}>Orders</span>
+
+                <span className={`sidebar_menu_name ${activeLink === '/printing-methods' ? 'active_list active' : ''}`}>Printing Methods</span>
               </a>
-            </li>
+            </li>       
 
             <li className="sidebar_list">
               <a href="/saved-designs">
@@ -97,6 +102,25 @@ const Sidebar = () => {
               </a>
             </li>
           </ul>
+          <div className="user_profile_sectiion">
+            <div className="user_profile">
+              <div className="custom-user-dropdown">
+                <img className="user-avatar" src="assets/Image/Avatar.png" alt="User Avatar" />
+                <div className="user_profile">
+                  <div className="user-name">Myles Dickinson</div>
+                  <div className="user_roll">Admin</div>
+                </div>
+                <div className="custom-user-dropdown-toggle" onClick={toggleUserDropdown}>
+                    <img src="assets/Image/Dropdown.svg" />
+                </div>
+                <div className="custom-user-dropdown-options" id="userDropdownOptions">
+                  <a href="#"><img src='assets/Image/profile.svg'/>Your Profile</a>
+                  <a href="#"><img src='assets/Image/help-centre.svg'/>Help Center</a>
+                  <a href="#"><img src="assets/Image/logout.svg" />Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

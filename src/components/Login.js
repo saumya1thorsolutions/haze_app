@@ -5,8 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { redirectToShopify,completeShopifyAuth } from "../shopifyAuth";
 import { useDispatch } from "react-redux";
 import { loginUser,setLoading } from "../features/userSlice";
+import { setAccessToken } from "../features/authSlice";
 
-const Login = () => {
+
+const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error,setError] = useState("");
@@ -32,26 +34,12 @@ const Login = () => {
   }, []); 
 
   useEffect(() => {
-    if(shopifyData != null){
-      console.log("inside function",shopifyData.data.customers);
-      console.log("email",email);
-      let checkemail = "saumya@thor.solutions";
-      let customerArray = shopifyData.data.customers;
-      console.log(customerArray.some((customer) => customer.email === checkemail)) ;
-      const foundCustomer = customerArray.find((customer) => customer.email === checkemail);
-      console.log(foundCustomer);
-
-      if(Object.keys(foundCustomer).length > 0){
-        dispatch(
-          loginUser({
-            uid: foundCustomer.id,
-            username: foundCustomer.first_name,
-            email: foundCustomer.email,
-          })
-        );
-        navigate("/home");
-      }
+    if(shopifyData){
+      dispatch(setAccessToken(shopifyData));
+      dispatch(loginUser(shopifyData));
+      navigate("/home");
     }
+    
     
   }, [shopifyData]);
 
